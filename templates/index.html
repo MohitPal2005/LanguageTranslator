@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <title>Language Translator</title>
+</head>
+<body>
+    <h1>Language Translator</h1>
+
+    <form id="translateForm" method="post">
+        <textarea name="text" rows="4" cols="50" placeholder="Enter text"></textarea><br/>
+
+        From:
+        <select name="src">
+            {% for code, name in languages.items() %}
+            <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+
+        To:
+        <select name="dest">
+            {% for code, name in languages.items() %}
+            <option value="{{ code }}" selected>{{ name }}</option>
+            {% endfor %}
+        </select><br/><br/>
+
+        <button type="submit">Translate</button>
+    </form>
+
+    <h2>Translated Text:</h2>
+    <!-- ✅ Added output box similar to input -->
+    <textarea id="resultBox" rows="4" cols="50" readonly placeholder="Translated text will appear here..."></textarea>
+
+    <script>
+    document.getElementById('translateForm').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+
+        const res = await fetch('/', {
+            method: 'POST',
+            body: formData
+        });
+
+        const data = await res.json();
+
+        if (data.translated_text) {
+            document.getElementById('resultBox').value = data.translated_text;
+        } else {
+            document.getElementById('resultBox').value = 'Error in translation';
+        }
+    });
+    </script>
+</body>
+</html>

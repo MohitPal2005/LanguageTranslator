@@ -1,0 +1,78 @@
+
+body {
+    background-color: #0d1b2a;
+    color: #e0e1dd;
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    color: #00b4d8;
+    margin-bottom: 30px;
+  }
+
+  textarea {
+    background-color: #1b263b;
+    color: #ffffff;
+    border: 2px solid #415a77;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+
+  select {
+    background-color: #1b263b;
+    color: #ffffff;
+    border: 2px solid #415a77;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+
+  button {
+    background-color: #00b4d8;
+    color: #0d1b2a;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  button:hover {
+    background-color: #0096c7;
+  }
+
+  h3 {
+    margin-top: 30px;
+    color: #caf0f8;
+  }
+
+  #outputText {
+    background-color: #1b263b;
+    color: #ffffff;
+    border: 2px solid #415a77;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 10px auto 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  @media (max-width: 600px) {
+    textarea, select, button, #outputText {
+      width: 95%;
+    }
+  }
+
