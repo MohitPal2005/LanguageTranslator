@@ -38,7 +38,7 @@
         e.preventDefault();
         const formData = new FormData(e.target);
 
-        const res = await fetch('/', {
+        const res = await fetch('/translate', {
             method: 'POST',
             body: formData
         });
